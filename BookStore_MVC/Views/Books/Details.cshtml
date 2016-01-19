@@ -1,0 +1,31 @@
+﻿@model BookStore_MVC.Models.Book
+
+@{
+    ViewBag.Title = "Details";
+}
+<p class="lead" style="margin: 25px 0">@Html.ActionLink("Books", "Index") > @Model.BookTitle</p>
+<div class="row">
+    <div class="col-md-3 text-center">
+        <img class="img-responsive img-thumbnail" src="~/Content/img/@Model.BookImage">
+    </div>
+    <div class="col-md-6">
+        <h4>Book Description</h4>
+        <p>@Html.DisplayFor(model => model.BookDescr)</p>
+        <h4>Book Details</h4>
+        <table class="table">
+            <tr>
+                <td>ISBN</td>
+                <td>@Model.BookIsbn</td>
+            </tr>
+            <tr>
+                <td>Author</td>
+                <td>@Model.BookAuthor</td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>@Model.BookPrice</td>
+            </tr>
+        </table>
+        @Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { id = Model.BookIsbn}, new { @class = "btn btn-primary"})
+    </div>
+</div>

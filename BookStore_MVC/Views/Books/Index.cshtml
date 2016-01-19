@@ -1,0 +1,13 @@
+﻿@model IEnumerable<BookStore_MVC.Models.Book>
+
+@{
+    ViewBag.Title = "Books Catalog";
+}
+
+    <p class="lead text-center text-muted">Full Catalogs of Books</p>
+    @foreach (var item in Model)
+    {
+        <a href="/Books/Details/@item.BookIsbn">
+            <img class="img-responsive img-thumbnail" src="~/Content/img/@item.BookImage" />
+        </a>
+    }

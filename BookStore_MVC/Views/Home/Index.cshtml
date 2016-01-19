@@ -1,0 +1,17 @@
+﻿@model IEnumerable<BookStore_MVC.Models.Book>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<p class="lead text-center text-muted">Latest books</p>
+<div class="row">
+    @foreach (var book in Model)
+    {
+        <div class="col-md-3">
+            <a href="/Books/Details/@book.BookIsbn">
+                <img class="img-responsive img-thumbnail" src="~/Content/img/@book.BookImage">
+            </a>
+        </div>
+    }
+</div>

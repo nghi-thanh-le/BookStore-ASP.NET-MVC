@@ -1,0 +1,34 @@
+﻿@model BookStore_MVC.ViewModel.ShoppingCartViewModel
+
+@{
+    ViewBag.Title = "Shopping Cart";
+}
+<h3>
+    <em>Review</em> your cart:
+</h3>
+    
+<a href="/Checkout/AddressAndPayment" class="btn btn-primary">Check out!</a>
+
+<table class="table" style="margin-top: 10px">
+    <tr>
+        <th>Album Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>&nbsp;</th>
+    </tr>
+    @foreach (var item in Model.CartItems)
+    {
+        <tr>
+            <td><a href="/Books/Details/@item.BookIsbn">@item.Book.BookTitle</a></td>
+            <td>@item.Book.BookPrice</td>
+            <td>@item.Count</td>
+            <td><a href="/ShoppingCart/RemoveFromCart/@item.BookIsbn">Remove from cart</a></td>
+        </tr>
+    }
+    <tr>
+        <td>Total</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>@Model.CartTotal</td>
+    </tr>
+</table>
